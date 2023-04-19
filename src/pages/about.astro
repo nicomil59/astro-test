@@ -1,7 +1,7 @@
 ---
-import '../styles/global.css';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 const pageTitle = "About Me";
 
@@ -21,10 +21,31 @@ const goal = 3;
 const skillColor = "navy";
 const fontWeight = "bold";
 const textCase = "uppercase";
-const todayColor= "#c24242";
+const todayColor = "#c24242";
 
-const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 const date = new Date();
 const day = days[date.getDay()];
 const dateOfTheDay = date.getDate();
@@ -40,7 +61,7 @@ const today = `${day}  ${dateOfTheDay}  ${currentMonth} ${year}`;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
-    <style define:vars={{skillColor, fontWeight, textCase, todayColor}}>
+    <style define:vars={{ skillColor, fontWeight, textCase, todayColor }}>
       h1 {
         color: purple;
         font-size: 4rem;
@@ -48,19 +69,19 @@ const today = `${day}  ${dateOfTheDay}  ${currentMonth} ${year}`;
       .skill {
         color: var(--skillColor);
         font-weight: var(--fontWeight);
-		text-transform: var(--textCase);
+        text-transform: var(--textCase);
       }
-	  .today {
-		color: var(--todayColor);
-		font-size: 1.5rem;
-	  }
+      .today {
+        color: var(--todayColor);
+        font-size: 1.5rem;
+      }
     </style>
   </head>
   <body>
     <Header />
     <h1>{pageTitle}</h1>
     <h2>... and my new Astro site!</h2>
-	<h3 class="today">{today}</h3>
+    <h3 class="today">{today}</h3>
     <p>
       I am working through Astro's introductory tutorial. This is the second
       page on my website, and it's the first one I built myself!
@@ -102,5 +123,8 @@ const today = `${day}  ${dateOfTheDay}  ${currentMonth} ${year}`;
       )
     }
     <Footer />
+    <script>
+      import "../scripts/menu";
+    </script>
   </body>
 </html>
