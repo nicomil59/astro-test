@@ -1,7 +1,5 @@
 ---
-import "../styles/global.css";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "About Me";
 
@@ -54,33 +52,20 @@ const year = date.getFullYear();
 const today = `${day}  ${dateOfTheDay}  ${currentMonth} ${year}`;
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-    <style define:vars={{ skillColor, fontWeight, textCase, todayColor }}>
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
-      .skill {
-        color: var(--skillColor);
-        font-weight: var(--fontWeight);
-        text-transform: var(--textCase);
-      }
-      .today {
-        color: var(--todayColor);
-        font-size: 1.5rem;
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <h1>{pageTitle}</h1>
-    <h2>... and my new Astro site!</h2>
+<style define:vars={{ skillColor, fontWeight, textCase, todayColor }}>
+  .skill {
+    color: var(--skillColor);
+    font-weight: var(--fontWeight);
+    text-transform: var(--textCase);
+  }
+  .today {
+    color: var(--todayColor);
+    font-size: 1.5rem;
+  }
+</style>
+
+<BaseLayout pageTitle={pageTitle}>
+  <h2>... and my new Astro site!</h2>
     <h3 class="today">{today}</h3>
     <p>
       I am working through Astro's introductory tutorial. This is the second
@@ -122,9 +107,5 @@ const today = `${day}  ${dateOfTheDay}  ${currentMonth} ${year}`;
         <p>My goal is not 3 days.</p>
       )
     }
-    <Footer />
-    <script>
-      import "../scripts/menu";
-    </script>
-  </body>
-</html>
+</BaseLayout>
+
